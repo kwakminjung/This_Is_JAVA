@@ -37,7 +37,9 @@ public <A, B, ...> 리턴타입 메소드명(매개변수, ...) { ... }
 ```
 
 다음 boxing() 메소드는 타입 파라미터로 <T>를 정의하고 매개변수 타입과 리턴 타입에서 T를 사용한다.
-`public <T> Box<T> boxing(T t) { ... }`
+```
+public <T> Box<T> boxing(T t) { ... }
+```
 
 타입 파라미터 T는 매개값이 어떤 타입이냐에 따라 컴파일 과정에서 구체적인 타입으로 대체된다.
 ```
@@ -49,4 +51,20 @@ public <A, B, ...> 리턴타입 메소드명(매개변수, ...) { ... }
 
 
 ### sec04 제한된 타입 파라미터
+경우에 따라서 타입 파라미터를 대체하는 구체적인 타입을 제한할 필요가 있다. (숫자연산 제네릭 메소드는 대체 타입으로 Byte, Short, Integer, Long, Double 등으로 제한)
+모든 타입으로 대체할 수 없고, 특정 타입과 자식 또는 구현 관계에 있는 타입만 대체할 수 있는 타입 파라미터를 제한된 타입 파라미터라고 한다.
+```
+public <T extends 상위타입> 리턴타입 메소드(매개변수, ...) { ... }
+```
+상위 타입은 클래스 뿐만 아니라 인터페이스도 가능하다. 인터페이스라고 해서 implements를 사용하지는 않는다.
+
+```
+public <T extends Number> boolean compare(T t1, T t2) {
+	double v1 = t1.doubleValue(); // Number의 doubleValue() 메소드 사용
+	double v2 = t2.doubleValue(); // Number의 doubleValue() 메소드 사용
+	return (v1 == v2);
+```
+
+
+
 ### sec05 와일드카드 타입 파라미터

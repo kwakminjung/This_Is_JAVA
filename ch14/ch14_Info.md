@@ -13,6 +13,10 @@
 <br>
 
 ### sec02 메인 스레드
+모든 자바 프로그램은 메인 스레드가 main() 메소드를 실행하면서 시작된다.<br>
+메인 스레드는 필요에 따라 추가 작업 스레드들을 만들어서 실행시킬 수 있다.<br>
+![Single-Thread, Multi-Thread](https://velog.velcdn.com/images/injoon2019/post/b72698a2-b1e8-4397-9b9d-7b9c0bca4fc9/image.png "singlethread와 multithread")
+싱글 스레드에서는 메인 스레드가 종료되면 프로세스도 종료된다. 하지만 멀티 스레드에서는 실행 중인 스레드가 하나라도 있다면 프로세스는 종료되지 않는다. 메인 스레드가 작업 스레드보다 먼저 종료되더라도 작업 스레드가 계속 실행 중이라면 프로세스는 종료되지 않는다.
 
 <br>
 
